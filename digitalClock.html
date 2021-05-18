@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="digclock.js" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitaClock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container{
+            height: 100%;
+            width: 100%;
+            background-color:#ececec;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hour,.min,.sec{
+            height: 200px;
+            width: 200px;
+            background-color:#ececec;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            box-shadow: 6px 6px 6px 0 rgba(217,210,200,0.51),-6px -6px 6px 0 rgba(255,255,255,0.83) ;
+        }
+        h2{
+            text-align: center;
+            font:50px monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="hour"><h2 id="hr">HH</h2></div>
+        <div class="min"><h2 id="mn">MM</h2></div>
+        <div class="sec"><h2 id="sc">SS</h2></div>       
+    </div>
+    <script>
+       setInterval(time,1000);
+       function time(){
+       var d= new Date();
+       document.getElementById('hr').innerHTML=d.getHours();
+       document.getElementById('mn').innerHTML=d.getMinutes();
+       document.getElementById('sc').innerHTML=d.getSeconds();
+       }
+       
+    </script>
+</body>
+</html>
