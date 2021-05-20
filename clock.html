@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ececec;
+        }
+        #cont{
+            width: 500px;
+            height: 500px;
+            background-color: #ececec;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            box-shadow: 6px 6px 6px 0 rgba(217,210,200,0.51),-6px -6px 6px 0 rgba(255,255,255,0.83) ,6px 6px 6px 0 rgba(217,210,200,0.51),-6px -6px 6px 0 rgba(255,255,255,0.83) ;
+        }      
+        .hour{
+            width: 20px;
+            height: 230px;
+            background-color: black;
+            position: relative;
+            bottom: 220px;
+            margin-left: auto;
+            margin-right: auto;   
+            transform-origin: bottom;          
+        }
+        .min{
+            width: 10px;
+            height: 230px;
+            background-color:#054b47;
+            position: relative;
+            bottom :-10px;
+            margin-left: auto;
+            margin-right: auto;
+            transform-origin: bottom;   
+        }
+        .sec{
+            width: 3px;
+            height: 230px;
+            background-color: black;
+            position: relative;
+            bottom:450px;
+            margin-left: auto;
+            margin-right: auto;      
+            transform-origin: bottom;    
+        }
+        @media (max-width:500px){
+            #cont{
+                width: 350px;
+                height: 350px;
+            }
+            .sec,.min,.hour{
+                height: 160px;
+            }
+            .hour{
+                bottom: 150px;
+            }
+            .sec{
+                bottom:310px ;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="cont">
+        <div class="min"></div>
+        <div class="hour"></div>
+        <div class="sec"></div>
+    </div>
+    <script>  
+        setInterval(time,1000);
+        function time(){
+            var d=new Date();
+            document.querySelector('.hour').style.transform=`rotate(${d.getHours()*30}deg)`;
+            document.querySelector('.min').style.transform=`rotate(${d.getMinutes()*6}deg)`;
+            document.querySelector('.sec').style.transform=`rotate(${d.getSeconds()*6}deg)`;
+            document.querySelector('.sec').style.backgroundColor="purple";
+        }
+    </script>  
+</body>
+</html>
